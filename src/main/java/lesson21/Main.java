@@ -39,16 +39,17 @@ public class Main {
 //                .concat(IntStream.of(1,2,3),IntStream.of(3,4,5))
 //                .forEach(System.out::println);
 //
-        peoples.stream()
-                .sorted(Comparator.comparing(Person::getCountry)
-                        .thenComparing(Person::getFirstname)
-                        .thenComparing(Person::getLastname))
-                .forEach(System.out::println);
-
-        peoples.stream()
-                .sorted(Comparator.comparing(Person::getGender).thenComparing(Person::getFirstname).thenComparing(Person::getLastname)).forEach(System.out::println);
+//        peoples.stream()
+//                .sorted(Comparator.comparing(Person::getCountry)
+//                        .thenComparing(Person::getFirstname)
+//                        .thenComparing(Person::getLastname))
+//                .forEach(System.out::println);
+//
+//        peoples.stream()
+//                .sorted(Comparator.comparing(Person::getGender).thenComparing(Person::getFirstname).thenComparing(Person::getLastname)).forEach(System.out::println);
 
         String collect = peoples.stream()
+                .peek(System.out::println)
                 .map(m -> m.getLastname() + m.getDob().getYear())
                 .collect(Collectors.joining("@gmail.com ","","@gmail.com"));
 
