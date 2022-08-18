@@ -88,8 +88,11 @@ public class Main {
 
 
         people.stream()
-                .map(person -> person.getGender().equals("male") ? "Mr " + person.getLastname()+ person.getCountry() + person.getDob().getYear() + " года рождения " :
-                                "Mrs " + person.getLastname()+ person.getCountry() + person.getDob().getYear() + " года рождения "
+                .map(person -> {
+                            return person.getGender().equals("male") ?
+                                    "Mr " + person.getLastname() + person.getCountry() + person.getDob().getYear() + " года рождения " :
+                                    "Mrs " + person.getLastname() + person.getCountry() + person.getDob().getYear() + " года рождения ";
+                        }
                         )
                 .forEach(System.out::println);
 
